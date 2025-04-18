@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduResell</title>
+  <link rel="icon" href="imgs/logo.png" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 10px 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    .hero {
+      background-color: #0073e6;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 30px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .indicators {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .indicator {
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .active-indicator {
+      background-color: #fff;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #ffcc00;
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e6b800;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 40px 20px;
+      background-color: #fff;
+    }
+
+    .feature {
+      background: #fff;
+      width: 300px;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .feature ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature ul li {
+      margin: 5px 0;
+    }
+
+    .feature ul li a {
+      text-decoration: none;
+      color: #0073e6;
+    }
+
+    .feature ul li a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #333;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+
+
+
+<body>
+    <header>
+        <h1>EduResell</h1>
+        <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Buy Materials</a></li>
+              <li><a href="pdfs.html">Study PDFs</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#" id="welcomeUser" style="color: #ffcc00;"></a></li>
+              <li><a href="#" id="logoutBtn" style="display: none;">Logout</a></li>
+              <li><a href="signup.html" id="signupLink">Signup</a></li> <!-- Signup link -->
+            </ul>
+        </nav>          
+    </header>
+      
+
+  <section class="hero">
+    <h2>Resell and Buy Educational Materials Easily</h2>
+    <p>Join our community-driven platform to sell and buy study materials at affordable prices.</p>
+
+    <div class="slideshow-container">
+      <img class="slide active" src="imgs/photo1.jpeg" alt="Educational Materials" />
+      <img class="slide" src="imgs/photo2.jpeg" alt="Books and Documents" />
+      <img class="slide" src="imgs/photo3.jpeg" alt="Study Resources" />
+    </div>
+
+    <div class="indicators">
+      <span class="indicator active-indicator" onclick="setSlide(0)"></span>
+      <span class="indicator" onclick="setSlide(1)"></span>
+      <span class="indicator" onclick="setSlide(2)"></span>
+    </div>
+
+    <a href="shop.html" class="btn">Start Shopping</a>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <img src="https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg" alt="Buy Quality Materials" />
+      <h3>Buy Quality Materials</h3>
+      <p>Find the best study materials curated by students and professionals.</p>
+      <ul>
+        <li><a href="pyq.html">Previous Year Questions</a></li>
+        <li><a href="notes.html">Notes</a></li>
+        <li><a href="ebooks.html">E-books</a></li>
+      </ul>
+    </div>
+
+    <div class="feature">
+      <img src="https://images.pexels.com/photos/415071/pexels-photo-415071.jpeg" alt="Sell Your Books & PDFs" />
+      <h3>Sell Your Books & PDFs</h3>
+      <p>Turn your old books and PDFs into cash by reselling them on our platform.</p>
+      <ul>
+        <li><a href="sell-books.html">Sell Books</a></li>
+        <li><a href="sell-pdfs.html">Sell PDFs</a></li>
+      </ul>
+    </div>
+
+    <div class="feature">
+      <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg" alt="Community Trusted" />
+      <h3>Community Trusted</h3>
+      <p>Join a trusted network of students and educators sharing knowledge.</p>
+      <ul>
+        <li><a href="forums.html">Discussion Forums</a></li>
+        <li><a href="reviews.html">Reviews & Ratings</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SDG Goals Section -->
+<section class="sdg-goals" style="background-color: #f4f4f4; padding: 50px 20px; text-align: center;">
+  <h2 style="color: #0073e6; margin-bottom: 20px;">Sustainable Development Goals (SDGs)</h2>
+  <p style="max-width: 800px; margin: 15px auto; color: #555;">
+    At EduResell, we are committed to contributing to the achievement of the United Nations Sustainable Development Goals (SDGs) by promoting accessible, affordable, and sustainable education for all. Here's how we align with the SDGs:
+  </p>
+  
+  <div class="sdg-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+      <!-- SDG 4: Quality Education -->
+      <div class="sdg-item" style="background-color: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/SDG_4_logo.svg/512px-SDG_4_logo.svg.png" alt="SDG 4 - Quality Education" style="max-width: 100px; margin-bottom: 15px;"/>
+          <h3 style="color: #0073e6;">Quality Education</h3>
+          <p style="color: #333;">We aim to make education accessible to all by providing affordable study materials to students everywhere.</p>
+      </div>
+
+      <!-- SDG 12: Responsible Consumption & Production -->
+      <div class="sdg-item" style="background-color: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/SDG_12_logo.svg/512px-SDG_12_logo.svg.png" alt="SDG 12 - Responsible Consumption" style="max-width: 100px; margin-bottom: 15px;"/>
+          <h3 style="color: #0073e6;">Responsible Consumption & Production</h3>
+          <p style="color: #333;">Our platform encourages reusing and recycling educational materials to reduce waste and promote sustainability.</p>
+      </div>
+
+      <!-- SDG 13: Climate Action -->
+      <div class="sdg-item" style="background-color: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/SDG_13_logo.svg/512px-SDG_13_logo.svg.png" alt="SDG 13 - Climate Action" style="max-width: 100px; margin-bottom: 15px;"/>
+          <h3 style="color: #0073e6;">Climate Action</h3>
+          <p style="color: #333;">By promoting the resale of physical materials, we contribute to reducing carbon footprints and preserving resources.</p>
+      </div>
+
+      <!-- SDG 17: Partnerships for the Goals -->
+      <div class="sdg-item" style="background-color: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/SDG_17_logo.svg/512px-SDG_17_logo.svg.png" alt="SDG 17 - Partnerships for the Goals" style="max-width: 100px; margin-bottom: 15px;"/>
+          <h3 style="color: #0073e6;">Partnerships for the Goals</h3>
+          <p style="color: #333;">We foster partnerships with educational institutions, students, and sellers to create a collaborative environment for learning.</p>
+      </div>
+  </div>
+  
+  <a href="sdg.html" class="btn" style="background-color: #0073e6; color: white; margin-top: 30px; display: inline-block; padding: 12px 25px; font-weight: bold; border-radius: 5px; text-decoration: none;">Learn More About Our SDG Initiatives</a>
+</section>
+
+
+  <section class="about" style="background-color: #f9f9f9; padding: 40px 20px; text-align: center;">
+    <h2>About EduResell</h2>
+    <p style="max-width: 800px; margin: 15px auto;">
+      EduResell is a community-driven marketplace created by students, for students. We aim to reduce educational costs by promoting the reuse of physical and digital materials. Our goal is to make learning accessible and sustainable.
+    </p>
+  </section>
+  
+  <section class="how-it-works" style="padding: 50px 20px; background-color: #fff;">
+    <h2 style="text-align: center;">How It Works</h2>
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 30px;">
+      <div style="width: 250px; text-align: center; margin: 20px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" width="60" />
+        <h3>Create Account</h3>
+        <p>Sign up and join the student network.</p>
+      </div>
+      <div style="width: 250px; text-align: center; margin: 20px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/3649/3649460.png" width="60" />
+        <h3>Buy or Sell</h3>
+        <p>List your materials or browse what's available.</p>
+      </div>
+      <div style="width: 250px; text-align: center; margin: 20px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2438/2438078.png" width="60" />
+        <h3>Study Smarter</h3>
+        <p>Get what you need, fast and affordably.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="testimonials" style="background-color: #0073e6; color: white; padding: 40px 20px;">
+    <h2 style="text-align: center;">What Students Are Saying</h2>
+    <div style="max-width: 900px; margin: 30px auto; display: flex; flex-wrap: wrap; justify-content: center;">
+      <div style="margin: 15px; max-width: 300px; background: white; color: #333; padding: 20px; border-radius: 10px;">
+        <p>"Found all my 3rd semester books at half the price! The process was easy and super helpful."</p>
+        <strong>- Riya S., CSE Student</strong>
+      </div>
+      <div style="margin: 15px; max-width: 300px; background: white; color: #333; padding: 20px; border-radius: 10px;">
+        <p>"I sold my PDFs and got extra cash for new materials. Awesome experience!"</p>
+        <strong>- Aryan M., Mechanical Engg.</strong>
+      </div>
+      <div style="margin: 15px; max-width: 300px; background: white; color: #333; padding: 20px; border-radius: 10px;">
+        <p>"A really great platform! It saves money and helps others too."</p>
+        <strong>- Neha P., MBA</strong>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta" style="text-align: center; background-color: #ffcc00; padding: 40px 20px;">
+    <h2>Be a Part of the Movement</h2>
+    <p>Join our platform and make education affordable for everyone.</p>
+    <a href="signup.html" class="btn" style="background-color: #333; color: white;">Get Started</a>
+  </section>
+  
+
+
+  <footer id="contact">
+    <p>&copy; 2025 EduResell. All Rights Reserved.</p>
+  </footer>
+ 
+
+  
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+    const indicators = document.querySelectorAll(".indicator");
+
+    function showSlides() {
+      slides.forEach(slide => slide.classList.remove("active"));
+      indicators.forEach(indicator => indicator.classList.remove("active-indicator"));
+
+      slideIndex = (slideIndex + 1) % slides.length;
+
+      slides[slideIndex].classList.add("active");
+      indicators[slideIndex].classList.add("active-indicator");
+    }
+
+    function setSlide(index) {
+      slideIndex = index - 1;
+      showSlides();
+    }
+
+    if (slides.length > 0) {
+      setInterval(showSlides, 3000);
+    }
+  </script>
+
+<script>
+    const welcomeUser = document.getElementById("welcomeUser");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const signupLink = document.getElementById("signupLink");
+  
+    const loggedInEmail = localStorage.getItem("loggedInUser");
+  
+    if (loggedInEmail) {
+      const userData = JSON.parse(localStorage.getItem(loggedInEmail));
+      if (userData && welcomeUser && logoutBtn) {
+        welcomeUser.textContent = `Welcome, ${userData.name}`;
+        logoutBtn.style.display = "inline"; 
+        signupLink.style.display = "none"; 
+      }
+    } else {
+      signupLink.style.display = "inline"; 
+    }
+  
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("loggedInUser");
+        alert("You have been logged out.");
+        window.location.href = "login.html";
+      });
+    }
+  </script>
+  
+</body>
+
+</html>

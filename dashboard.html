@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduResell | Dashboard</title>
+  <link rel="icon" href="imgs/logo.png" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .login-btn {
+      background-color: #0073e6;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .dashboard-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #0073e6;
+      color: white;
+    }
+
+    .dashboard-content {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .overview, .recent-activity, .quick-actions {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 32%;
+    }
+
+    .overview h3, .recent-activity h3, .quick-actions h3 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #0073e6;
+    }
+
+    .overview ul, .recent-activity ul, .quick-actions ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .overview ul li, .recent-activity ul li, .quick-actions ul li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .overview ul li:last-child, .recent-activity ul li:last-child, .quick-actions ul li:last-child {
+      border-bottom: none;
+    }
+
+    .quick-actions button {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .quick-actions button:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      color: white;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .dashboard-content {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .overview, .recent-activity, .quick-actions {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <h1>EduResell</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Buy Materials</a></li>
+        <li><a href="pdfs.html">Study PDFs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="login.html" id="loginBtn" class="login-btn">Login</a> <!-- Login Button -->
+    </div>
+  </header>
+
+  <!-- Dashboard Header -->
+  <section class="dashboard-header">
+    <h2>Welcome to Your Dashboard</h2>
+    <p>Manage your account, review your activity, and explore available actions.</p>
+  </section>
+
+  <!-- Dashboard Content -->
+  <section class="dashboard-content">
+    <!-- User Overview -->
+    <div class="overview">
+      <h3>User Overview</h3>
+      <ul>
+        <li><strong>Name:</strong> John Doe</li>
+        <li><strong>Email:</strong> johndoe@example.com</li>
+        <li><strong>Membership Level:</strong> Premium</li>
+        <li><strong>Total Purchases:</strong> 15</li>
+        <li><strong>Wishlist Items:</strong> 5</li>
+      </ul>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent-activity">
+      <h3>Recent Activity</h3>
+      <ul>
+        <li>Purchased "Data Structures Book" on 10th April</li>
+        <li>Added "Operating Systems Book" to wishlist</li>
+        <li>Viewed "Engineering Math Notes" on 9th April</li>
+        <li>Rated "Semester 4 Guide" 5/5</li>
+      </ul>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <h3>Quick Actions</h3>
+      <ul>
+        <li><button onclick="viewPurchases()">View Purchases</button></li>
+        <li><button onclick="viewWishlist()">View Wishlist</button></li>
+        <li><button onclick="manageAccount()">Manage Account</button></li>
+        <li><button onclick="logOut()">Log Out</button></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 EduResell. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Check login status and show/hide the login button
+    function checkLoginStatus() {
+      const loggedIn = localStorage.getItem('userLoggedIn');
+      const loginBtn = document.getElementById('loginBtn');
+
+      if (loggedIn === 'true') {
+        loginBtn.style.display = 'none';  // Hide login button if logged in
+      } else {
+        loginBtn.style.display = 'inline-block';  // Show login button if not logged in
+      }
+    }
+
+    // Simulate quick action functions
+    function viewPurchases() {
+      alert("Redirecting to your purchase history...");
+      // Implement view purchases functionality later
+    }
+
+    function viewWishlist() {
+      alert("Redirecting to your wishlist...");
+      // Implement view wishlist functionality later
+    }
+
+    function manageAccount() {
+      alert("Redirecting to manage your account...");
+      // Implement account management functionality later
+    }
+
+    function logOut() {
+      localStorage.setItem('userLoggedIn', 'false');
+      checkLoginStatus();
+      alert("You have been logged out.");
+    }
+
+    // Run login status check on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      checkLoginStatus();
+    });
+  </script>
+
+</body>
+</html>

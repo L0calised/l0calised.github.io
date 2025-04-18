@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduResell | Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .cart-btn {
+      background-color: #ffcc00;
+      color: #333;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cart-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #0073e6;
+      color: white;
+    }
+
+    .cart-items {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f7f7f7;
+    }
+
+    td img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quantity-controls button {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+
+    .total-price {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .checkout-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    .clear-cart {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      color: white;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .cart-items {
+        padding: 10px;
+      }
+
+      table th, table td {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .quantity-controls button {
+        padding: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EduResell</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Buy Materials</a></li>
+        <li><a href="pdfs.html">Study PDFs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="cart.html" class="cart-btn" id="cartBtn">🛒 Cart (0)</a>
+  </header>
+
+  <section class="cart-header">
+    <h2>Your Cart</h2>
+  </section>
+
+  <section class="cart-items" id="cartItemsContainer">
+    <!-- Cart items will be displayed here -->
+  </section>
+
+  <div class="total-price">
+    Total: ₹<span id="totalPrice">0</span>
+  </div>
+
+  <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+  <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+
+  <footer id="contact">
+    <p>&copy; 2025 EduResell. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Product images from shop.html
+    const productImages = {
+      "Data Structures Book": "https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg",
+      "Handwritten Notes - DBMS": "https://images.pexels.com/photos/574285/pexels-photo-574285.jpeg",
+      "Semester 4 Guide": "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg",
+      "Operating Systems Book": "https://images.pexels.com/photos/261909/pexels-photo-261909.jpeg",
+      "Engineering Math Notes": "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg",
+      "Final Exam Prep Guide": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg"
+    };
+
+    // Render cart items
+    function renderCart() {
+      const cartItemsContainer = document.getElementById('cartItemsContainer');
+      cartItemsContainer.innerHTML = '';
+      let totalPrice = 0;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+      } else {
+        const table = document.createElement('table');
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+        `;
+
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          totalPrice += itemTotal;
+
+          table.innerHTML += `
+            <tr>
+              <td><img src="${productImages[item.name]}" alt="${item.name}" /></td>
+              <td>${item.name}</td>
+              <td>₹${item.price}</td>
+              <td>
+                <div class="quantity-controls">
+                  <button onclick="changeQuantity(${item.id}, -1)">-</button>
+                  <span>${item.quantity}</span>
+                  <button onclick="changeQuantity(${item.id}, 1)">+</button>
+                </div>
+              </td>
+              <td>₹${itemTotal}</td>
+              <td><button onclick="removeFromCart(${item.id})">Remove</button></td>
+            </tr>
+          `;
+        });
+
+        table.innerHTML += '</tbody>';
+        cartItemsContainer.appendChild(table);
+      }
+
+      document.getElementById('totalPrice').textContent = totalPrice;
+    }
+
+    // Change product quantity
+    function changeQuantity(id, delta) {
+      const product = cart.find(item => item.id === id);
+      if (product) {
+        product.quantity += delta;
+        if (product.quantity < 1) product.quantity = 1;  // Prevent negative or zero quantity
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+      }
+    }
+
+    // Remove item from cart
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    // Clear the cart
+    function clearCart() {
+      cart = [];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    // Checkout function
+    function checkout() {
+      alert("Proceeding to Checkout...");
+      // Implement checkout process later (payment integration, etc.)
+    }
+
+    // Load cart on page load
+    document.addEventListener('DOMContentLoaded', renderCart);
+  </script>
+
+</body>
+</html>

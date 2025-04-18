@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduResell - Buy & Sell Study Materials</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/1324780044043817003/1357077934564708454/feather-quill-design-icon-logo-illustration_665655-8141.png?ex=67eee4d0&is=67ed9350&hm=9368df7b55a5f908fadcb7619884681baf629ec9f63836c98aad6e6c99bb5e93&">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background: #0073e6;
+            color: white;
+            border-radius: 5px;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            border-radius: 5px;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .active {
+            display: block;
+        }
+        .indicators {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .indicator {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .active-indicator {
+            background-color: #717171;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ffcc00;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .feature {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .feature img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EduResell</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Buy Materials</a></li>
+                <li><a href="pdfs.html">Study PDFs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h2>Resell and Buy Educational Materials Easily</h2>
+        <p>Join our community-driven platform to sell and buy study materials at affordable prices.</p>
+        <div class="slideshow-container">
+            <img class="slide active" src="https://cdn.discordapp.com/attachments/1324780044043817003/1357046523694813284/pexels-photo-3747468.jpeg?ex=67fdf0cf&is=67fc9f4f&hm=514274d35b9a92e9d800bacefe897fbeb8649e311c76b6030a353a651557a820&" alt="Educational Materials">
+            <img class="slide" src="https://cdn.discordapp.com/attachments/1324780044043817003/1357055978775773214/pexels-photo-590493.jpeg?ex=67fdf99e&is=67fca81e&hm=6f208ba7f59bc1ba4f0672d8e4f710dbbefc85374a67cda6b958ba113af38435&" alt="Books and Documents">
+            <img class="slide" src="https://cdn.discordapp.com/attachments/1324780044043817003/1357055979275030688/pexels-photo-1329571c1.jpeg?ex=67fdf99e&is=67fca81e&hm=0c5c6d4eca9a08c70ca3954dd3f00e2b02ca9353767cdc2fce92bd957a40d7d6&" alt="Study Resources">
+        </div>
+        <div class="indicators">
+            <span class="indicator active-indicator" onclick="setSlide(0)"></span>
+            <span class="indicator" onclick="setSlide(1)"></span>
+            <span class="indicator" onclick="setSlide(2)"></span>
+        </div>
+        <a href="shop.html" class="btn">Start Shopping</a>
+    </section>
+    
+    <section class="features">
+        <div class="feature">
+            <img src="https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg" alt="Buy Quality Materials">
+            <h3>Buy Quality Materials</h3>
+            <p>Find the best study materials curated by students and professionals.</p>
+            <ul>
+                <li><a href="pyq.html">Previous Year Questions</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="ebooks.html">E-books</a></li>
+            </ul>
+        </div>
+        <div class="feature">
+            <img src="https://images.pexels.com/photos/415071/pexels-photo-415071.jpeg" alt="Sell Your Books & PDFs">
+            <h3>Sell Your Books & PDFs</h3>
+            <p>Turn your old books and PDFs into cash by reselling them on our platform.</p>
+            <ul>
+                <li><a href="sell-books.html">Sell Books</a></li>
+                <li><a href="sell-pdfs.html">Sell PDFs</a></li>
+            </ul>
+        </div>
+        <div class="feature">
+            <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg" alt="Community Trusted">
+            <h3>Community Trusted</h3>
+            <p>Join a trusted network of students and educators sharing knowledge.</p>
+            <ul>
+                <li><a href="forums.html">Discussion Forums</a></li>
+                <li><a href="reviews.html">Reviews & Ratings</a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <p>&copy; 2025 EduResell. All Rights Reserved.</p>
+    </footer>
+    
+    <script>
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.querySelectorAll(".slide");
+            let indicators = document.querySelectorAll(".indicator");
+            slides.forEach(slide => slide.style.display = "none");
+            indicators.forEach(indicator => indicator.classList.remove("active-indicator"));
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].style.display = "block";
+            indicators[slideIndex].classList.add("active-indicator");
+        }
+        function setSlide(index) {
+            slideIndex = index - 1;
+            showSlides();
+        }
+        setInterval(showSlides, 3000);
+    </script>
+</body>
+</html>

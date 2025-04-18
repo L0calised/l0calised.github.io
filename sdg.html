@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SDG Goals - EduResell</title>
+  <link rel="icon" href="imgs/logo.png" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 10px 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    .hero {
+      background-color: #0073e6;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .sdg-goals {
+      padding: 50px 20px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    .sdg-goals h2 {
+      color: #0073e6;
+      margin-bottom: 20px;
+    }
+
+    .sdg-goals p {
+      color: #555;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .sdg-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .sdg-item {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .sdg-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .sdg-item img {
+      max-width: 100px;
+      margin-bottom: 15px;
+    }
+
+    .sdg-item h3 {
+      color: #0073e6;
+      margin-bottom: 15px;
+    }
+
+    .sdg-item p {
+      color: #333;
+    }
+
+    .btn {
+      background-color: #0073e6;
+      color: white;
+      padding: 12px 25px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+      display: inline-block;
+      margin-top: 30px;
+    }
+
+    .btn:hover {
+      background-color: #005bb5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>EduResell</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Buy Materials</a></li>
+                <li><a href="pdfs.html">Study PDFs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>          
+    </header>
+
+    <section class="hero">
+        <h2>Learn About Sustainable Development Goals (SDGs)</h2>
+        <p>At EduResell, we believe in contributing to a better world by aligning with the United Nations Sustainable Development Goals (SDGs).</p>
+    </section>
+
+    <section class="sdg-goals">
+        <h2>Sustainable Development Goals (SDGs)</h2>
+        <p>
+            EduResell is committed to promoting sustainability and making education more accessible. We are dedicated to the following SDGs, which guide our mission and practices:
+        </p>
+
+        <div class="sdg-container">
+            <!-- SDG 4: Quality Education -->
+            <div class="sdg-item">
+                <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-04.jpg" alt="SDG 4 - Quality Education" />
+                <h3>Quality Education</h3>
+                <p>We strive to make education accessible to all by providing affordable study materials to students worldwide.</p>
+            </div>
+
+            <!-- SDG 12: Responsible Consumption & Production -->
+            <div class="sdg-item">
+                <img src="https://gccassociation.org/wp-content/uploads/2020/11/E-WEB-Goal-12.png" alt="SDG 12 - Responsible Consumption" />
+                <h3>Responsible Consumption & Production</h3>
+                <p>We promote the reuse and recycling of educational materials to reduce waste and support a circular economy.</p>
+            </div>
+
+            <!-- SDG 13: Climate Action -->
+            <div class="sdg-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sustainable_Development_Goal_13Climate.svg/1200px-Sustainable_Development_Goal_13Climate.svg.png" alt="SDG 13 - Climate Action" />
+                <h3>Climate Action</h3>
+                <p>We contribute to mitigating climate change by promoting sustainable practices, like reducing the need for new educational products.</p>
+            </div>
+
+            <!-- SDG 17: Partnerships for the Goals -->
+            <div class="sdg-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sustainable_Development_Goal_17Partnerships.svg/1200px-Sustainable_Development_Goal_17Partnerships.svg.png" alt="SDG 17 - Partnerships for the Goals" />
+                <h3>Partnerships for the Goals</h3>
+                <p>We collaborate with educational institutions, students, and sellers to create a community that drives positive change.</p>
+            </div>
+        </div>
+
+        <a href="index.html" class="btn">Back to Home</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 EduResell. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

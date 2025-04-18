@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduResell | Study PDFs</title>
+  <link rel="icon" href="imgs/logo.png" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .cart-btn {
+      background-color: #ffcc00;
+      color: #333;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .shop-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #0073e6;
+      color: white;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+      gap: 20px;
+    }
+
+    .tabs button {
+      padding: 10px 20px;
+      background-color: #0073e6;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+
+    .tabs button:hover {
+      background-color: #005bb5;
+    }
+
+    /* Grid layout with better distribution */
+    .pdfs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      justify-content: space-between;
+    }
+
+    .pdf-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .pdf-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .pdf-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .pdf-card h3 {
+      margin: 15px 0 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .pdf-card p {
+      margin: 0 0 15px;
+      color: #555;
+      font-size: 16px;
+    }
+
+    .pdf-card button {
+      padding: 12px 24px;
+      border: none;
+      background-color: #0073e6;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .pdf-card button:hover {
+      background-color: #005bb5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      color: white;
+    }
+
+    .semester-section {
+      display: none;
+    }
+
+    .semester-section.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <h1>EduResell</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Buy Materials</a></li>
+        <li><a href="pdfs.html">Study PDFs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="cart.html" class="cart-btn" id="cartBtn">🛒 Cart (0)</a>
+  </header>
+
+  <section class="shop-header">
+    <h2>Browse & Download Study PDFs</h2>
+    <p>Get educational materials like notes, books, and guides in PDF format</p>
+  </section>
+
+  <!-- Tabs to Select Semester -->
+  <div class="tabs">
+    <button onclick="showSemester('all')">All</button>
+    <button onclick="showSemester(1)">Semester 1</button>
+    <button onclick="showSemester(2)">Semester 2</button>
+    <button onclick="showSemester(3)">Semester 3</button>
+    <button onclick="showSemester(4)">Semester 4</button>
+  </div>
+
+  <!-- Semester 1 PDFs -->
+  <div class="semester-section" id="semester1">
+    <h3>Semester 1 - Study PDFs</h3>
+    <div class="pdfs">
+      <div class="pdf-card">
+        <img src="https://www.w3schools.com/w3images/forest.jpg" alt="Data Structures">
+        <h3>Data Structures Notes</h3>
+        <p>Author: John Doe</p>
+        <button onclick="downloadPDF(1, 'Data Structures Notes', 'path/to/semester1/pdf1.pdf')">Download PDF</button>
+      </div>
+      <div class="pdf-card">
+        <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="Algorithms">
+        <h3>Algorithms Notes</h3>
+        <p>Author: Mark Johnson</p>
+        <button onclick="downloadPDF(1, 'Algorithms Notes', 'path/to/semester1/pdf2.pdf')">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Semester 2 PDFs -->
+  <div class="semester-section" id="semester2">
+    <h3>Semester 2 - Study PDFs</h3>
+    <div class="pdfs">
+      <div class="pdf-card">
+        <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="DBMS">
+        <h3>DBMS Notes</h3>
+        <p>Author: Jane Smith</p>
+        <button onclick="downloadPDF(2, 'DBMS Notes', 'path/to/semester2/pdf2.pdf')">Download PDF</button>
+      </div>
+      <div class="pdf-card">
+        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Networking">
+        <h3>Computer Networks Notes</h3>
+        <p>Author: Sarah Williams</p>
+        <button onclick="downloadPDF(2, 'Computer Networks Notes', 'path/to/semester2/pdf3.pdf')">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Semester 3 PDFs -->
+  <div class="semester-section" id="semester3">
+    <h3>Semester 3 - Study PDFs</h3>
+    <div class="pdfs">
+      <div class="pdf-card">
+        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Operating Systems">
+        <h3>Operating Systems Notes</h3>
+        <p>Author: Bob White</p>
+        <button onclick="downloadPDF(3, 'Operating Systems Notes', 'path/to/semester3/pdf3.pdf')">Download PDF</button>
+      </div>
+      <div class="pdf-card">
+        <img src="https://www.w3schools.com/w3images/forest.jpg" alt="Database Management">
+        <h3>Database Management Systems Notes</h3>
+        <p>Author: Emily Clark</p>
+        <button onclick="downloadPDF(3, 'DBMS Notes', 'path/to/semester3/pdf4.pdf')">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Semester 4 PDFs -->
+  <div class="semester-section" id="semester4">
+    <h3>Semester 4 - Study PDFs</h3>
+    <div class="pdfs">
+      <div class="pdf-card">
+        <img src="https://www.w3schools.com/w3images/forest.jpg" alt="Algorithms">
+        <h3>Algorithms Notes</h3>
+        <p>Author: Alice Green</p>
+        <button onclick="downloadPDF(4, 'Algorithms Notes', 'path/to/semester4/pdf4.pdf')">Download PDF</button>
+      </div>
+      <div class="pdf-card">
+        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Software Engineering">
+        <h3>Software Engineering Notes</h3>
+        <p>Author: Michael Brown</p>
+        <button onclick="downloadPDF(4, 'Software Engineering Notes', 'path/to/semester4/pdf5.pdf')">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <p>&copy; 2025 EduResell. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Function to switch between semesters
+    function showSemester(semester) {
+      const allSections = document.querySelectorAll('.semester-section');
+      allSections.forEach(section => section.classList.remove('active'));
+
+      if (semester === 'all') {
+        allSections.forEach(section => section.classList.add('active'));
+      } else {
+        const activeSection = document.getElementById('semester' + semester);
+        activeSection.classList.add('active');
+      }
+    }
+
+    // Default to show all semesters
+    document.addEventListener('DOMContentLoaded', () => {
+      showSemester('all');
+    });
+
+    // Download functionality
+    function downloadPDF(id, name, pdfPath) {
+      window.location.href = pdfPath; // Directs to the PDF path
+    }
+  </script>
+
+</body>
+</html>

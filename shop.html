@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduResell | Buy Materials</title>
+  <link rel="icon" href="imgs/logo.png" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .cart-btn {
+      background-color: #ffcc00;
+      color: #333;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .shop-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #0073e6;
+      color: white;
+    }
+
+    .filters {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filters select,
+    .filters input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .product-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .product-card p {
+      margin: 0 0 10px;
+    }
+
+    .product-card button {
+      padding: 8px 16px;
+      border: none;
+      background-color: #0073e6;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin: 40px 0;
+      color: #333;
+    }
+
+    .category-cards {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+
+    .category-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 250px;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .related-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .review-card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .review-card p {
+      font-style: italic;
+    }
+
+    .review-card h4 {
+      margin: 10px 0 5px;
+      color: #0073e6;
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+        <h1>EduResell</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Buy Materials</a></li>
+            <li><a href="pdfs.html">Study PDFs</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html" class="cart-btn" id="cartBtn">🛒 Cart (0)</a>
+      </header>
+      
+
+  <section class="shop-header">
+    <h2>Browse & Buy Physical Study Materials</h2>
+    <p>Get second-hand books, notes, and guides from students around you</p>
+  </section>
+
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="Search by name..." />
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <option value="book">Books</option>
+      <option value="notes">Notes</option>
+      <option value="guide">Guides</option>
+    </select>
+  </div>
+
+  <!-- Featured Categories Section -->
+  <section class="section-title">
+    <h2>Featured Categories</h2>
+  </section>
+
+  <section class="category-cards">
+    <div class="category-card">
+      <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg" />
+      <h3>Books</h3>
+      <p>Explore various books for your studies</p>
+    </div>
+    <div class="category-card">
+      <img src="https://images.pexels.com/photos/574285/pexels-photo-574285.jpeg" />
+      <h3>Notes</h3>
+      <p>Get handwritten and prepared notes from peers</p>
+    </div>
+    <div class="category-card">
+      <img src="https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg" />
+      <h3>Guides</h3>
+      <p>Find the best guides to help you prepare for exams</p>
+    </div>
+  </section>
+
+  <section class="products" id="productList">
+    <div class="product-card" data-category="book" data-id="1">
+      <img src="https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg" />
+      <h3>Data Structures Book</h3>
+      <p>₹199</p>
+      <button onclick="addToCart(1, 'Data Structures Book', 199)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-category="notes" data-id="2">
+      <img src="https://images.pexels.com/photos/574285/pexels-photo-574285.jpeg" />
+      <h3>Handwritten Notes - DBMS</h3>
+      <p>₹99</p>
+      <button onclick="addToCart(2, 'Handwritten Notes - DBMS', 99)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-category="guide" data-id="3">
+      <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg" />
+      <h3>Semester 4 Guide</h3>
+      <p>₹149</p>
+      <button onclick="addToCart(3, 'Semester 4 Guide', 149)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-category="book" data-id="4">
+      <img src="https://images.pexels.com/photos/261909/pexels-photo-261909.jpeg" />
+      <h3>Operating Systems Book</h3>
+      <p>₹175</p>
+      <button onclick="addToCart(4, 'Operating Systems Book', 175)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-category="notes" data-id="5">
+      <img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg" />
+      <h3>Engineering Math Notes</h3>
+      <p>₹80</p>
+      <button onclick="addToCart(5, 'Engineering Math Notes', 80)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-category="guide" data-id="6">
+      <img src="https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg" />
+      <h3>Final Exam Prep Guide</h3>
+      <p>₹130</p>
+      <button onclick="addToCart(6, 'Final Exam Prep Guide', 130)">Add to Cart</button>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section class="section-title">
+    <h2>Customer Reviews</h2>
+  </section>
+
+  <section class="related-products">
+    <div class="review-card">
+      <h4>John Doe</h4>
+      <p>"The Data Structures Book I purchased was super helpful for my exams. Highly recommend EduResell!"</p>
+    </div>
+    <div class="review-card">
+      <h4>Jane Smith</h4>
+      <p>"The notes I got were written very clearly and helped me a lot with my preparation!"</p>
+    </div>
+    <div class="review-card">
+        <h4>Michael P</h4>
+        <p>"Great guide! It helped me stay focused during my final revision"</p>
+    </div>
+    <div class="review-card">
+        <h4>Priya V</h4>
+        <p>"Perfect condition, and the content is well explained. Great buy!"</p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>&copy; 2025 EduResell. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Cart logic
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+    function addToCart(id, name, price) {
+      const existingProduct = cart.find(item => item.id === id);
+      
+      if (existingProduct) {
+        existingProduct.quantity++;
+      } else {
+        const newProduct = { id, name, price, quantity: 1 };
+        cart.push(newProduct);
+      }
+  
+      localStorage.setItem('cart', JSON.stringify(cart));
+  
+      // Update Cart button with item count
+      updateCartBtn();
+    }
+  
+    function updateCartBtn() {
+      const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+      document.getElementById('cartBtn').textContent = `🛒 Cart (${totalItems})`;
+    }
+  
+    // Update Cart button on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartBtn();
+    });
+  
+    // Search and Filter Logic
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const productList = document.getElementById('productList');
+  
+    function filterProducts() {
+      const searchText = searchInput.value.toLowerCase();
+      const selectedCategory = categoryFilter.value;
+  
+      Array.from(productList.children).forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const category = card.getAttribute('data-category');
+  
+        const matchesSearch = title.includes(searchText);
+        const matchesCategory = selectedCategory === "all" || category === selectedCategory;
+  
+        card.style.display = matchesSearch && matchesCategory ? 'block' : 'none';
+      });
+    }
+  
+    searchInput.addEventListener('input', filterProducts);
+    categoryFilter.addEventListener('change', filterProducts);
+  </script>
+  
+
+</body>
+</html>
