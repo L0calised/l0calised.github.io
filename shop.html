@@ -308,6 +308,74 @@
   <footer id="contact">
     <p>&copy; 2025 EduResell. All Rights Reserved.</p>
   </footer>
+  <script>
+    // Update product card buttons with item quantities
+    function updateProductCardQuantities() {
+      Array.from(productList.children).forEach(card => {
+        const productId = parseInt(card.getAttribute('data-id'));
+        const productInCart = cart.find(item => item.id === productId);
+        const button = card.querySelector('button');
+
+        if (productInCart) {
+          button.innerHTML = `🛒 Add to Cart <span style="color: #0073e6;">(${productInCart.quantity})</span>`;
+          button.style.backgroundColor = "#e6f7ff";
+          button.style.color = "#0073e6";
+        } else {
+          button.innerHTML = 'Add to Cart';
+          button.style.backgroundColor = "#0073e6";
+          button.style.color = "white";
+        }
+      });
+    }
+
+    // Update product card quantities on page load and after adding to cart
+    document.addEventListener('DOMContentLoaded', () => {
+      updateProductCardQuantities();
+    });
+
+    function addToCart(id, name, price) {
+      const existingProduct = cart.find(item => item.id === id);
+
+      if (existingProduct) {
+        existingProduct.quantity++;
+      } else {
+        const newProduct = { id, name, price, quantity: 1 };
+        cart.push(newProduct);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Update Cart button and product card quantities
+      updateCartBtn();
+      updateProductCardQuantities();
+    }
+  </script>
+  
+  <script>
+    // Update all Add to Cart buttons to match the theme
+    function updateProductCardQuantities() {
+      Array.from(productList.children).forEach(card => {
+        const productId = parseInt(card.getAttribute('data-id'));
+        const productInCart = cart.find(item => item.id === productId);
+        const button = card.querySelector('button');
+
+        if (productInCart) {
+          button.innerHTML = `🛒 Add to Cart (${productInCart.quantity})`;
+          button.style.backgroundColor = "#e6f7ff";
+          button.style.color = "#0073e6";
+        } else {
+          button.innerHTML = '🛒 Add to Cart';
+          button.style.backgroundColor = "#e6f7ff";
+          button.style.color = "#0073e6";
+        }
+      });
+    }
+
+    // Update product card quantities on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateProductCardQuantities();
+    });
+  </script>
 
   <script>
     // Cart logic
@@ -327,6 +395,9 @@
   
       // Update Cart button with item count
       updateCartBtn();
+      
+      // Update product card quantities
+      updateProductCardQuantities();
     }
   
     function updateCartBtn() {
